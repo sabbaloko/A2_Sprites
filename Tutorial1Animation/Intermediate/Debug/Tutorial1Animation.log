@@ -1,0 +1,36 @@
+﻿Build started 11/6/2015 2:36:36 PM.
+     1>Project "C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Tutorial1Animation.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\include\\" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Intermediate\Debug\\" /Fd"C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Intermediate\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\main.cpp
+         main.cpp
+     1>c:\users\100506828\desktop\algorithm & comp 2310u\assignment 2\tutorial7animationstarter\tutorial7animationstarter\include\ttk\meshbase.h(45): warning C4251: 'TTK::MeshBase::vertices' : class 'std::vector<TTK::Vector3,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'TTK::MeshBase'
+                 with
+                 [
+                     _Ty=TTK::Vector3
+                 ]
+     1>c:\users\100506828\desktop\algorithm & comp 2310u\assignment 2\tutorial7animationstarter\tutorial7animationstarter\include\ttk\meshbase.h(46): warning C4251: 'TTK::MeshBase::textureCoordinates' : class 'std::vector<TTK::Vector3,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'TTK::MeshBase'
+                 with
+                 [
+                     _Ty=TTK::Vector3
+                 ]
+     1>c:\users\100506828\desktop\algorithm & comp 2310u\assignment 2\tutorial7animationstarter\tutorial7animationstarter\include\ttk\meshbase.h(47): warning C4251: 'TTK::MeshBase::colours' : class 'std::vector<TTK::Vector4,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'TTK::MeshBase'
+                 with
+                 [
+                     _Ty=TTK::Vector4
+                 ]
+     1>c:\users\100506828\desktop\algorithm & comp 2310u\assignment 2\tutorial7animationstarter\tutorial7animationstarter\include\ttk\spritesheetquad.h(63): warning C4251: 'TTK::SpriteSheetQuad::spriteCoordinates' : class 'std::vector<TTK::SpriteCoordinates,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'TTK::SpriteSheetQuad'
+                 with
+                 [
+                     _Ty=TTK::SpriteCoordinates
+                 ]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\bin\Debug\Tutorial7Animation.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\lib\\" glut32.lib ILUT.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\bin\Debug\Tutorial7Animation.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\bin\Debug\Tutorial7Animation.lib" /MACHINE:X86 "C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Intermediate\Debug\main.obj"
+         "C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Intermediate\Debug\Particle.obj"
+         "C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Intermediate\Debug\ParticleEmitter.obj"
+         "C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Intermediate\Debug\Object.obj"
+         Tutorial1Animation.vcxproj -> C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\bin\Debug\Tutorial7Animation.exe
+     1>Done Building Project "C:\Users\100506828\Desktop\Algorithm & Comp 2310U\Assignment 2\Tutorial7AnimationStarter\Tutorial7AnimationStarter\Tutorial1Animation\Tutorial1Animation.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.43
