@@ -76,7 +76,7 @@ inline TTK::Vector3 randomColourRGB()
 }
 
 //Size
-inline TTK::Vector3 randomSize()
+inline TTK::Vector3 randomizeSize()
 {
 	return TTK::Vector3(randomFloatRange(0.0f), randomFloatRange(0.0f), randomFloatRange(0.0f));
 }

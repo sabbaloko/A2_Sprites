@@ -7,11 +7,13 @@ ParticleEmitter::ParticleEmitter()
 	// Initialize memory pointer to null
 	particles = nullptr;
 	numParticles = 0;
+	//Initialize flags to false
 	drawCube = false;
 	drawSpriteSmoke = false; 
 	drawSpriteFire = false;
 	drawSpriteTrail = false;
 
+	randomizeSize = false;
 	initialSize = 1.0f;
 	initialLife = 1.0f;
 	initialMass = 1.0f;
@@ -73,6 +75,8 @@ void ParticleEmitter::update(float dt)
 				p->colour = lerp<TTK::Vector4>(colour0, colour1, 1.0 - p->life / p->initialLife);
 			if (lerpColour2)
 				p->colour = lerp<TTK::Vector4>(colour2, colour3, 1.0 - p->life / p->initialLife);
+			if (doCatmull)
+				p->position = catmull<TTK::Vector3>(initialPosition, secondPosition, thirdPosition, finalPosition, dt);
 			//Update the particle 
 			p->update(dt);
 		}
@@ -129,10 +133,15 @@ Particle ParticleEmitter::respawnParticle()
 		p.velocity = randomDirection() * randomFloatRange(0.0f, 10.0f);
 	}
 
-	//if (randomSize)
+	//if (doCatmull)
 	//{
-	//	p.scale = randomSize() * randomFloatRange(0.0f, 10.0f)
+	//	p.position -> doCatmull();
 	//}
+
+	if (randomizeSize)
+	{
+		p.scale = randomFloatRange() * randomFloatRange(1.0f, 5.0f);
+	}
 
 	// 
 

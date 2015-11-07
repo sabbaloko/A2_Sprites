@@ -11,8 +11,9 @@ public:
 	Particle();
 	~Particle();
 	TTK::SpriteSheetQuad *spriteFire;
-	//TTK::SpriteSheetQuad *spriteSmoke;
-	//TTK::SpriteSheetQuad *spriteTrail;
+	TTK::SpriteSheetQuad *spriteSmoke;
+	TTK::SpriteSheetQuad *spriteTrail;
+	TTK::SpriteSheetQuad *spriteGun;
 
  	void update(float dt); //Moves the particle for physics
 	void draw(); //draws particle onto screen
@@ -31,6 +32,7 @@ public:
 	bool drawSpriteSmoke;
 	bool drawSpriteFire;
 	bool drawSpriteTrail;
+	bool drawSpriteGun;
 
 	//Visual properties
 	TTK::Vector4 colour; //16 bytes

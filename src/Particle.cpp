@@ -5,6 +5,7 @@
 Particle::Particle()
 {
 	spriteFire = new TTK::SpriteSheetQuad("..//img//fire.png");
+	//spriteGun = new TTK::SpriteSheetQuad("..//img//gun.png");
 	//spriteSmoke = new TTK::SpriteSheetQuad("..//img//smoke.png");
 	//spriteTrail = new TTK::SpriteSheetQuad("..//img//trail.png");
 	mass = 1.0f;
@@ -14,6 +15,7 @@ Particle::Particle()
 	drawSpriteSmoke = false;
 	drawSpriteFire = false;
 	drawSpriteTrail = false;
+	drawSpriteGun = true;
 	
 }
 
@@ -92,23 +94,21 @@ void Particle::draw()
 	}
 
 	//Sprite for Third Particle 
-	if (drawSpriteTrail)
-	{
-		glMatrixMode(GL_MODELVIEW);
-		//glLoadIdentity();
-		glPushMatrix();
-		TTK::Matrix4x4 mat = TTK::Matrix4x4(TTK::Matrix3x3(), position, scale);
+	//if (drawSpriteTrail)
+	//{
+	//	glMatrixMode(GL_MODELVIEW);
+	//	//glLoadIdentity();
+	//	glPushMatrix();
+	//	TTK::Matrix4x4 mat = TTK::Matrix4x4(TTK::Matrix3x3(), position, scale);
+	//
+	//	glMultMatrixf(mat.values);
+	//
+	//	//For Cube
+	//	//TTK::Graphics::DrawCube(position.values, scale, colour.values);
+	//	//spriteTrail->draw(); /////////////////////////make pointers<<<<<<<<<
+	//	glPopMatrix();
 
-		glMultMatrixf(mat.values);
-
-		//For Cube
-		//TTK::Graphics::DrawCube(position.values, scale, colour.values);
-		//spriteTrail->draw(); /////////////////////////make pointers<<<<<<<<<
-		glPopMatrix();
-
-	}
-	
-
+	//}
 }
 
 

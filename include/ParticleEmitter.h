@@ -38,8 +38,12 @@ public:
 	// Emitter properties
 
 	TTK::Vector3 initialPosition; //Emittter position in worldspace
+	TTK::Vector3 secondPosition; //Emitter Point for catmull
+	TTK::Vector3 thirdPosition; //Emitter Point for catmull 
+	TTK::Vector3 finalPosition; //Emmiter end position
 	TTK::Vector3 initialVelocity; //Initial velocity for each particle
 	TTK::Vector3 initialForce; //Initial force for each particle
+	TTK::Vector3 deltaTime;
 
 	float initialLife;
 	float initialMass;
@@ -48,16 +52,18 @@ public:
 	// Visual properties for the particles
 	TTK::Vector4 colour0;
 	TTK::Vector4 colour1;
-	TTK::Vector4 colour2;
+	TTK::Vector4 colour2 = (1.0f, 0.0f, 0.0f);
 	TTK::Vector4 colour3;
 	float initialize;
 	// Textire, spritesheet etc...(whatever visual properties you want)
 
-	bool catPosition;
+	bool doCatmull;
 	bool randomizeColour;
+	bool randomizeSize;
 	bool randomizeVelocity;
 	bool lerpColour1;
 	bool lerpColour2;
+	
 	
 	bool drawCube;
 	//Smoke
@@ -66,6 +72,7 @@ public:
 	bool drawSpriteFire;
 	//Trail
 	bool drawSpriteTrail;
+	//Gun
 
 	// ...add as many more as you like 
 private:

@@ -59,7 +59,7 @@ void drawSceneObjects(void)
 
 	/* Create a floor */
 	glPushMatrix();
-	glTranslatef(0.0f, -2.f, 0.0f);
+	glTranslatef(0.0f, 0.0f, 0.0f);
 	glScalef(10.f, 10.f, 10.f);
 	glBindTexture(GL_TEXTURE_2D, floorTex);
 	glBegin(GL_QUADS);
@@ -69,7 +69,9 @@ void drawSceneObjects(void)
 	glTexCoord2f(0.0f, 0.0f);	glVertex3f(-1.0f, 0.0f, 1.0f);
 	glTexCoord2f(1.0f, 0.0f);	glVertex3f(1.0f, 0.0f, 1.0f);
 	glEnd();
+
 	glPopMatrix();
+	
 }
 
 
@@ -77,13 +79,13 @@ void DisplayCallbackFunction(void)
 {
 	TTK::Graphics::SetBackgroundColour(0.5f, 0.0f, 1.0f);
 	TTK::Graphics::ClearScreen();
+	drawSceneObjects();
 
 	TTK::Graphics::SetCameraMode3D(windowWidth, windowHeight);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	camera.updateView();
-	drawSceneObjects();
 	//TTK::Graphics::DrawGrid();
 
 	////First Particle Emitter////
@@ -100,10 +102,15 @@ void DisplayCallbackFunction(void)
 		emitterSmoke.initialLife = 3.0f;
 		emitterSmoke.initialVelocity = TTK::Vector3(2.0f, 2.0f, 0.0f);
 		emitterSmoke.initialForce = TTK::Vector3(0.0f);
-	    emitterSmoke.initialPosition = TTK::Vector3(5.0f, -2.6f, 5.0f);
-
+		//Set initial position of emitter 
+		emitterSmoke.initialPosition = TTK::Vector3(0.0f, 0.0f, 0.0f);
+		emitterSmoke.secondPosition = TTK::Vector3(1.0f, 1.0f, 1.0f);
+		emitterSmoke.thirdPosition = TTK::Vector3(2.0f, 2.0f, 2.0f);
+		emitterSmoke.finalPosition = TTK::Vector3(0.0f, 5.0f, 0.0f);
+		emitterSmoke.deltaTime = 5.0f;
 
 		emitterSmoke.colour0 = TTK::Vector4(0.2f);
+		//Set color 0 for smoke = almost black to white
 		emitterSmoke.colour1 = TTK::Vector4(0.9f);
 	
 
@@ -111,7 +118,7 @@ void DisplayCallbackFunction(void)
 
 		emitterSmoke.drawCube = true;
 		emitterSmoke.lerpColour1 = true;
-		emitterSmoke.catPosition = true;
+		//emitterSmoke.doCatmull = true; //this breaks it 
 
 
 		emitterSmoke.Initialize(25);
@@ -123,7 +130,7 @@ void DisplayCallbackFunction(void)
 	emitterSmoke.draw();
 
 	////Second Particle Emitter////
-	     ////Fireworks////
+	     ////Fire////
 	static ParticleEmitter emitterFire;
 	static bool erInit = false;
 	if (!erInit)
@@ -134,16 +141,20 @@ void DisplayCallbackFunction(void)
 		//Random Colour
 		emitterFire.randomizeColour = true;
 		//Random Velocity
-		emitterFire.randomizeVelocity = true;
+		//emitterFire.randomizeVelocity = true;
+		//Set Velocity
+		emitterFire.initialVelocity = 25.0f;
 		//Draw Sprite
 		emitterFire.drawSpriteFire = true;
 		//emitterFire.drawCube = true;
-		emitterFire.initialMass = 5.0f;
-		emitterFire.initialLife = 5.0f;
-		emitterFire.initialPosition = TTK::Vector3(5.0f, -2.f, 5.0f);
+		emitterFire.initialMass = 10.0f;
+		emitterFire.initialLife = 2.0f;
+		//Emitter Initial Position
+		emitterFire.initialPosition = TTK::Vector3(-6.0f, 5.0f, 0.0f);
 
-		emitterFire.Initialize(15);
+		emitterFire.Initialize(5);
 		emitterFire.play();
+		
 	}
 
 	emitterFire.update(deltaTime);
@@ -152,7 +163,7 @@ void DisplayCallbackFunction(void)
 
 
 	////Third Particle Emitter////
-	      ////Trail////
+	      ////Fireworks or Trail////
 	static ParticleEmitter emitterTrail;
 	static bool trailInit = false;
 	if (!trailInit)
@@ -163,13 +174,15 @@ void DisplayCallbackFunction(void)
 		//Random Colour
 		emitterTrail.randomizeColour = true;
 		//Random Velocity
-		//emitterTrail.randomizeVelocity = true;
+		emitterTrail.randomizeVelocity = true;
 		//Draw Sprite
+		emitterTrail.randomizeSize = true;
+		emitterTrail.drawSpriteTrail = true;
 		emitterTrail.drawCube = true;
-		//emitterFire.drawCube = true;
 		emitterTrail.initialMass = 5.0f;
 		emitterTrail.initialLife = 5.0f;
 		emitterTrail.initialPosition = TTK::Vector3(-5.0f, -2.6f,-5.0f);
+		
 
 		emitterTrail.Initialize(15);
 		emitterTrail.play();
@@ -178,10 +191,11 @@ void DisplayCallbackFunction(void)
 	emitterTrail.update(deltaTime);
 	emitterTrail.draw();
 
-
+	
 	glutSwapBuffers();
 	
 }
+
 
 /* function void KeyboardCallbackFunction(unsigned char, int,int)
 * Description:
